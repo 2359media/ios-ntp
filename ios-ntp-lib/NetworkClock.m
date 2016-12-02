@@ -80,6 +80,9 @@
 
     for (NetAssociation * timeAssociation in sortedArray) {
         if (timeAssociation.active) {
+            if ([timeAssociation isKindOfClass:[NSNull class]]) {
+                continue;
+            }
             if (timeAssociation.trusty) {
                 usefulCount++;
                 timeInterval = timeInterval + timeAssociation.offset;
